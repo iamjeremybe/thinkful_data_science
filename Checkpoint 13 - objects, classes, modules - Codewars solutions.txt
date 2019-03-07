@@ -1,0 +1,30 @@
+# Thinkful - Object Drills - Vectors
+class Vector(object):
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+
+  def add(self, vector2):
+    return Vector(self.x + vector2.x, self.y + vector2.y)
+
+# Thinkful - Object Drills - Puzzlebox
+def answer(puzzlebox):
+    # Print statements are your friend.
+  print(dir(puzzlebox)) # Showing my work :)
+  print(puzzlebox.hint) #string
+  print(puzzlebox.answer) #string --Cute. :|
+  print(puzzlebox.hint_two) #string
+  print(puzzlebox.key) #number
+  print(puzzlebox.lock(puzzlebox.key))
+  return 42
+
+# Thinkful - Object Drills - Quarks
+class Quark(object):
+    baryon_number = 1/3
+    
+    def __init__(self, color, flavor):
+        self.color = color
+        self.flavor = flavor
+
+    def interact(self, other):
+        self.color, other.color = other.color, self.color
