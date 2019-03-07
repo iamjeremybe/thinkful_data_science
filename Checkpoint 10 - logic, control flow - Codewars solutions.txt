@@ -1,0 +1,57 @@
+# Thinkful Logic Drills - Traffic light
+def update_light(current):
+    current = current.lower()
+    if current == 'green':
+      return 'yellow'
+    elif current == 'yellow':
+      return 'red'
+    elif current == 'red':
+      return 'green'
+    else: # You fed this function some garbage
+      return 'red'
+
+# Thinkful Logic Drills - Umbrella decider
+def take_umbrella(weather, rain_chance):
+    if weather == 'rainy':
+      return True
+    elif (weather != 'sunny' and rain_chance > 0.20):
+      return True
+    elif (weather == 'sunny' and rain_chance > 0.50):
+      return True
+    else:
+      return False
+
+# Thinkful Logic Drills - Graceful addition
+def my_add(a, b):
+    try:
+        return a + b
+    except:
+        return None
+
+# Thinkful Logic Drills - Red and bumpy
+def color_probability(color, texture):
+  probability = 0
+  # Only 3 smooth marbles; 7 bumpy ones
+  if texture == 'bumpy':
+    probability = {'red': 4/7, 'yellow': 2/7, 'green': 1/7}[color]
+  elif texture == 'smooth':
+    # Could take a shortcut and just say "1/3" but this is easier to update if the # of marbles changes later
+    probability = {'red': 1/3, 'yellow': 1/3, 'green': 1/3}[color]
+  else:
+    # You entered garbage
+    probability = 0
+  return str(probability)[0:4]
+
+# Thinkful Logic Drills - Hacking p-hackers
+def categorize_study(p_value, requirements):
+    bs_factor = 2 ** (6 - requirements)
+    score = p_value * bs_factor
+    if score < 0.05:
+      if requirements > 0:
+        return "Fine"
+      else:
+        return "Needs review"
+    elif score < 0.15:
+      return "Needs review"
+    else:
+      return "Pants on fire"
