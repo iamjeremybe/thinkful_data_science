@@ -1,0 +1,44 @@
+# Thinkful Number Drills - Rømer temperature
+def celsius_to_romer(temp):
+    return temp * 21 / 40 + 7.5
+
+# Thinkful Number Drills - Pixelart planning
+def is_divisible(wall_length, pixel_size):
+    return wall_length % pixel_size == 0
+
+# Thinkful Number Drills: Blue and red marbles
+def guess_blue(blue_start, red_start, blue_pulled, red_pulled):
+    remaining_blue = blue_start-blue_pulled
+    remaining_red = red_start-red_pulled
+    return remaining_blue/(remaining_blue+remaining_red)
+
+# Thinkful Number Drills - Congo warehouses
+def box_capacity(length, width, height):
+  floor_length = (length * 12) // 16
+  floor_width = (width * 12) // 16
+  floor_height = (height * 12) // 16
+  return floor_length * floor_width * floor_height
+
+# Thinkful Number Drills - Quadratic formula
+import math
+
+def quadratic_formula(a, b, c):
+    
+    root1 = (-b + math.sqrt(b**2 - (4 * a *c))) / (2 * a)
+    # Put -b + something something here.
+    
+    root2 = (-b - math.sqrt(b**2 - (4 * a *c))) / (2 * a)
+    # Put -b - something something here.
+    
+    return [root1, root2]
+
+# I had my heart set on using a sqrt function, but I see I can just use ** .5 and not have to import the math package:
+def quadratic_formula(a, b, c):
+    
+    root1 = (-b + (b**2 - (4 * a *c)) ** .5) / (2 * a)
+    # Put -b + something something here.
+    
+    root2 = (-b - (b**2 - (4 * a *c)) ** .5) / (2 * a)
+    # Put -b - something something here.
+    
+    return [root1, root2]
