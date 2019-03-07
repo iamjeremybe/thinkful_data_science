@@ -1,0 +1,37 @@
+# Thinkful List Drills - Longest word
+def longest(words):
+    # Your code here
+    longest_length = 0
+    for word in words :
+        if len(word) > longest_length :
+            longest_length = len(word)
+            
+    return longest_length
+
+# Thinkful List and Loop Drills - Grade calculator
+def calculate_grade(scores):
+    mean = sum(scores)/len(scores)
+    if mean >= 90:
+        return 'A'
+    elif mean >= 80:
+        return 'B'
+    elif mean >= 70:
+        return 'C'
+    elif mean >= 60:
+        return 'D'
+    else:
+        return 'F'
+
+# Thinkful List and Loop Drills - Lists of lists
+def process_data(data):
+  subtract_list = []
+  for duo in data:
+    subtract_list.append(duo[0] - duo[1])
+  product = subtract_list.pop()
+  while len(subtract_list) > 0:
+    product *= subtract_list.pop()
+  return product
+
+# Thinkful List and Loop Drills - Inverse Slicer
+def inverse_slice(items, a, b):
+    return items[:a] + items[b:]
