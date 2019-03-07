@@ -1,0 +1,32 @@
+# Thinkful String Drills - Hello, World
+def hello(name):
+    # Insert your code below.
+    # Don't forget to use `return`.
+    return 'Hello, ' + name
+
+# Thinkful String Drills - Quotable
+def quotable(name, quote):
+    return name + " said: " +"\""+ quote +"\""
+
+# Thinkful String Drills - Repeater
+def repeater(string, n):
+    return string * n
+
+# Thinkful String Drills - Repeater level 2
+def repeater(string, n):
+    # Your code goes here.
+    repeated_string = string * n
+    return '"{}" repeated {} times is: "{}"'.format(string, n, repeated_string)
+
+# Thinkful String Drills - Jedi Name
+def greet_jedi(first, last):
+    jedi_name = (last[0:3]).capitalize() + (first[0:2]).capitalize()
+    return 'Greetings, master {}'.format(jedi_name)
+
+# Thinkful String Drills - Area code extractor
+def area_code(text):
+    return text[text.find("(")+1:text.find(")")]
+
+# Thinkful String drills - Poem formatter
+def format_poem(poem):
+  return ".\n".join(poem.split(". "))
