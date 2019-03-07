@@ -1,0 +1,50 @@
+# Thinkful Dictionary Drills - Order filler
+def fillable(stock, merch, n):
+  if (merch in stock and stock[merch] - n >= 0):
+    return True
+  else:
+    return False
+
+# I immediately see that I can reduce this to:
+def fillable(stock, merch, n):
+  return merch in stock and stock[merch] - n >= 0
+
+# Thinkful Dictionary Drills - User contacts
+def user_contacts(data):
+  user_dictionary = {}
+  for each_item in data:
+    try:
+      user_dictionary[each_item[0]] = each_item[1]
+    except IndexError:
+      user_dictionary[each_item[0]] = None
+  return user_dictionary
+
+# Thinkful Dictionary Drills - Multiple modes
+def modes(data):
+  data_counts = {}
+  for item in data:
+    try:
+      data_counts[item] += 1
+    except KeyError:
+      data_counts[item] = 1
+  highest_count = sorted(list(data_counts.values()))
+  if highest_count[0] == highest_count[-1]:
+    return [] # Highest and lowest counts are the same, so the counts in between are as well?
+  else:
+    modes = []
+    for key in list(data_counts.keys()):
+      if data_counts[key] == highest_count[-1]:
+        modes.append(key)
+    return sorted(modes)
+
+# Second try:
+
+def modes(data):
+# I have since learned comprehensions work well here
+  data_counts = {item:data.count(item) for item in data}
+
+  highest_count = sorted(data_counts.values())
+  if highest_count[0] == highest_count[-1]:
+    return [] # Highest and lowest counts are the same, so the counts in between are as well?
+  else:
+    return sorted([key for key in data_counts.keys() if data_counts[key] == highest_count[-1]])
