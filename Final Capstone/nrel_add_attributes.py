@@ -18,9 +18,7 @@ debug=False
 # This dataset eats an ENORMOUS amount of RAM trying to calculate
 # these attributes if vectorized instead of looped, unfortunately.
 
-#disk_dir='/media/jeremy/Seagate Backup Plus Drive/wind_capstone'
 disk_dir='/home/jeremy/Google_Drive/wind_capstone' 
-#local_dir='/home/jeremy/Google_Drive/wind_capstone' #Documents/Jupyter/Final Capstone'
 local_dir='/media/jeremy/Seagate Backup Plus Drive/wind_capstone'
 
 # Some summary statistics will be generated for each state, and compiled in a single dataframe.
@@ -43,9 +41,6 @@ for filename in os.listdir('{}/nrel_no_exclusions_by_state/'.format(local_dir)):
         print("Found and skipping a stray file: ",filename)
         continue
     us_state = filename.split('_')[3].split('.')[0]
-    if us_state in ['KS','AL','NH','MA']: # Test states, already completed
-        print("Skipping {}; continue".format(us_state))
-        continue
 
     print("Reading NREL file for ",us_state,time.strftime('%X %x %Z'))
     nrel_wind_data = gpd.read_file('{}/nrel_no_exclusions_by_state/{}'.format(local_dir,filename),driver='GeoJSON')

@@ -21,7 +21,7 @@ lower48_borders = borders.loc[(borders['REGION'] < '5') & (~borders['STUSPS'].is
 
 del borders
 
-for qualifier in ['no']: #['w','no']:
+for qualifier in ['w','no']:
     print("Opening {} NREL file ".format(qualifier),time.strftime('%X %x %Z'))
     if (qualifier == 'w'):
         nrel_wind_data = gpd.read_file('./ref-wind-with-exclusions/ref_wind.shp')
@@ -35,7 +35,7 @@ for qualifier in ['no']: #['w','no']:
     
     nrel_out_df = gpd.GeoDataFrame()
     
-    # The number of records we will process at one time:
+# The number of records we will process at one time:
     nrel_chunk_size = 1000
     nrel_length = nrel_wind_data.shape[0]
     nrel_first_idx = 0
@@ -67,10 +67,7 @@ for qualifier in ['no']: #['w','no']:
     
     nrel_out_df.rename({'STUSPS': 'state'},axis='columns',inplace=True)
     nrel_out_df['state'].fillna('Offshore',inplace=True)
-#    if not rerun:
-#        nrel_out_df.to_file('{}/nrel_{}_exclusions_all.geojson'.format(disk_dir,qualifier), driver='GeoJSON')
-#    else:
-#        nrel_out_df = gpd.read_file('{}/nrel_{}_exclusions_all.geojson'.format(disk_dir,qualifier), driver='GeoJSON')
+
     for state in nrel_out_df['state'].unique():
 # I should make this more rerunnable. Best I can do in a pinch:
 # Skip Offshore, which is garbage.
